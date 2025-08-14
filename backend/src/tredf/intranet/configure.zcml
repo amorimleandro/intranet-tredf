@@ -1,17 +1,26 @@
 <configure
     xmlns="http://namespaces.zope.org/zope"
-    xmlns:genericsetup="http://namespaces.zope.org/genericsetup"
+    xmlns:i18n="http://namespaces.zope.org/i18n"
+    i18n_domain="tredf.intranet"
     >
 
-  <genericsetup:upgradeSteps
-      profile="tredf.intranet:default"
-      source="1000"
-      destination="20250813001"
-      >
-    <genericsetup:upgradeDepends
-        title="Altera timezone para America/Sao_Paulo"
-        import_steps="plone.app.registry"
-        />
-  </genericsetup:upgradeSteps>
+  <i18n:registerTranslations directory="locales" />
+
+  <include
+      package="Products.CMFCore"
+      file="permissions.zcml"
+      />
+
+
+  <include file="dependencies.zcml" />
+  <include file="profiles.zcml" />
+  <include file="permissions.zcml" />
+
+  <include package=".controlpanels" />
+  <include package=".indexers" />
+  <include package=".serializers" />
+  <include package=".vocabularies" />
+
+  <!-- -*- extra stuff goes here -*- -->
 
 </configure>
