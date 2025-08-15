@@ -17,4 +17,3 @@ const AreaView = (props) => {
 };
 
 export default AreaView;
-
