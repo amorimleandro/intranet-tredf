@@ -68,6 +68,7 @@ class IArea(model.Schema):
         required=False,
     )
 
+
 @implementer(IArea)
 class Area(Container):
     """Uma Área no TRE-DF."""
