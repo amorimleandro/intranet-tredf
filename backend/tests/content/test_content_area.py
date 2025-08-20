@@ -100,3 +100,19 @@ class TestArea:
             payload["description"] = ""
             area = api.content.create(container=container, **payload)
         assert area.exclude_from_nav is True
+
+    def test_subscriber_modified_with_description_value(self, area_payload):
+        from zope.event import notify
+        from zope.lifecycleevent import ObjectModifiedEvent
+
+        container = self.portal
+        with api.env.adopt_roles(["Manager"]):
+            area = api.content.create(
+                container=container,
+                **area_payload,
+            )
+        assert area.exclude_from_nav is False
+        area.description = ""
+        # Area é o objeto que foi modificado
+        notify(ObjectModifiedEvent(area))
+        assert area.exclude_from_nav is True
