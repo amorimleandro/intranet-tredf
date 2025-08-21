@@ -11,7 +11,6 @@
       file="permissions.zcml"
       />
 
-
   <include file="dependencies.zcml" />
   <include file="profiles.zcml" />
   <include file="permissions.zcml" />
@@ -20,9 +19,8 @@
   <include package=".controlpanels" />
   <include package=".indexers" />
   <include package=".serializers" />
+  <include package=".services" />
   <include package=".subscribers" />
   <include package=".vocabularies" />
-
-  <!-- -*- extra stuff goes here -*- -->
 
 </configure>
